@@ -9,15 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import co.simplon.PoleEmploi.Application;
 import co.simplon.PoleEmploi.patrimoine.dao.VilleDao;
 import co.simplon.PoleEmploi.patrimoine.dao.VilleJpaDao;
 import co.simplon.PoleEmploi.patrimoine.modele.Ville;
 
+
 public class VilleServlet extends HttpServlet {
-
+	private static Logger log = LoggerFactory.getLogger(VilleServlet.class);
 	private static final long serialVersionUID = 1L;
-
+	
 	protected EntityManager createEntityManager() {
 		return Application.EMF.createEntityManager();
 	}
@@ -26,7 +30,7 @@ public class VilleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String idParam = req.getParameter("id");
-
+        log.info("doGet VilleServlet");
 		if (idParam != null) {
 			EntityManager em = null;
 
@@ -85,7 +89,7 @@ public class VilleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String idParam = req.getParameter("id");
-
+		 log.info("doGet VilleServlet");
 		if (idParam != null) {
 			EntityManager em = null;
 

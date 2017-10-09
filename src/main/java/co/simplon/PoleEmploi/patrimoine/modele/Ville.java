@@ -8,12 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "CITIES")
 @NamedQueries({
 		@NamedQuery(name = "Ville.findAll", query = "SELECT v FROM Ville v"),
 		@NamedQuery(name = "Ville.deleteById", query = "DELETE FROM Ville v WHERE v.id = :id") })
+@XmlRootElement
 public class Ville {
 
 	@Id
